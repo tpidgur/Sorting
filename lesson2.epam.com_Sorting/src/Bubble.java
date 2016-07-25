@@ -1,16 +1,19 @@
+import java.util.Arrays;
+
 /**
- * Created by Зая on 09.05.2016.
+ * Created by  on 09.05.2016.
  */
-public class Bubble {
-    public static void sort(Comparable[] data) {
-        for (int barrier = data.length - 1; barrier >= 0; barrier--) {
-            for (int index = 0; index < barrier; index++) {
-                if (Example.less(data[index + 1], data[index])) {
-                    Comparable tmp = data[index];
-                    data[index] = data[index + 1];
-                    data[index + 1] = tmp;
+public class Bubble implements Sorting {
+    public  void sort(int [] arr) {
+        System.out.println("Bubble sort");
+        System.out.println("Before:\t" + Arrays.toString(arr));
+        for (int barrier = arr.length - 1; barrier >= 0; barrier--) {
+            for (int i = 0; i < barrier; i++) {
+                if (arr[i]>arr[i+1]) {
+                    swap(arr,i+1,i);
                 }
             }
         }
+        System.out.println("After:\t" + Arrays.toString(arr));
     }
 }

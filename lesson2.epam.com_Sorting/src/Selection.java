@@ -1,17 +1,21 @@
+import java.util.Arrays;
+
 /**
- * Created by Зая on 09.05.2016.
+ * Created by  on 09.05.2016.
  */
-public class Selection {
-    public static void sort(Comparable[] a) {
-        int N = a.length;
-        for (int i = 0; i < N; i++) {
+public class Selection implements Sorting {
+
+    public void sort(int[] arr) {
+        System.out.println("Selection sort");
+        System.out.println("Before:\t" + Arrays.toString(arr));
+        for (int i = 0; i < arr.length - 1; i++) {
             int min = i;
-            for (int j = i + 1; j < N; j++)
-                if (Example.less(a[j], a[min]))
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[min] > arr[j])
                     min = j;
-            Example.exch(a, i, min);
-
-
+            }
+            swap(arr,min,i);
         }
+        System.out.println("After:\t" + Arrays.toString(arr));
     }
 }
